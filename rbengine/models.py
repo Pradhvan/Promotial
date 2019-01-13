@@ -8,21 +8,49 @@ class Campaign(models.Model):
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL,
                                    on_delete=models.CASCADE)
     created_date = models.DateTimeField(default=timezone.now)
-    Activate = 'ACT'
-    Stop = 'Stop'
-    Pause = 'Pa'
+
+    def __str__(self):
+        return self.name
+
+
+class Rule(models.Model):
+    rule_name = models.CharField(max_length=1000)
+    campaigns = models.ForeignKey(
+        'Campaign', on_delete=models.CASCADE)
+    schedule = models.TimeField()
+    condition = models.TextField()
+    Activate = 'Activate'
+    Deactivate = 'Deactivate'
     STATUS_CHOICES = (
         (Activate, 'Activate'),
-        (Stop, 'Stop'),
-        (Pause, 'Pause'),
+        (Deactivate, 'Deactivate'),
     )
     STATUS = models.CharField(
-        max_length=2,
+        max_length=1000,
         choices=STATUS_CHOICES,
         default=Activate,
     )
-    campaign_id = models.CharField(primary_key=True, max_length=100)
-    # List of metrics
+    Notify = 'Notify'
+    Pause = 'Pause'
+    Start = 'Start'
+    ACTION_CHOICES = (
+        (Notify, 'Notify'),
+        (Start, 'Start'),
+        (Pause, 'Pause'),
+    )
+    ACTION = models.CharField(
+        max_length=1000,
+        choices=ACTION_CHOICES,
+        default=Notify)
+
+    def __str__(self):
+        return self.rule_name
+
+
+class VariableMetric(models.Model):
+    metric_id = models.CharField(max_length=500)
+    rules = models.ForeignKey(
+        'Rule', on_delete=models.CASCADE)
     impression = models.IntegerField(blank=True, null=True)
     click = models.IntegerField(blank=True, null=True)
     install = models.IntegerField(blank=True, null=True)
@@ -31,4 +59,4 @@ class Campaign(models.Model):
     ecpi = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
-        return self.name, self.status
+        return self.metric_id

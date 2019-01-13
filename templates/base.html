@@ -19,6 +19,7 @@
        <div class="collapse navbar-collapse" id="mainMenu">
       {% if user.is_authenticated %}
         <ul class="navbar-nav ml-auto">
+          <a href="{% url 'ruleform' %}"><button type="submit"class="btn btn-primary btn-block">ADD Rule</button></a>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{ user.username }}
@@ -41,13 +42,14 @@
   </div>
 </nav>
   <div class="container">
-    <ol class="breadcrumb my-4">
-      {% block breadcrumb %}
-      {% endblock %}
-    </ol>
     {% block content %}
     {% endblock %}
   </div>
+  <footer class = footer>
+        <div id="footer-text">
+            <center><span>&copy; Team Promotial </span></center>
+        </div>
+</footer>
 {% endblock body %}
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>

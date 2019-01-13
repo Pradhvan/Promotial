@@ -1,5 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+{% if user.is_authenticated %}
+<div class="container">
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Rule Name</th>
+        <th>Campaigns</th>
+        <th>Schedule</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for Rule in rules %}
+       <tr>
+          <td>{{ Rule.rule_name }}</td>
+          <td>{{ Rule.campaigns }}</td>
+          <td class="align-middle">{{ Rule.schedule }}</td>
+          <td class="align-middle">{{ Rule.STATUS }}</td>
+          <td><a href="{% url 'ruleformedit' pk=Rule.pk %}"><button type="submit"class="btn btn-primary btn-block">Edit</button></td></a>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
 {% endblock %}
