@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     # 3'rd Party
     'widget_tweaks',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,9 @@ STATICFILES_DIRS = [
 LOGOUT_REDIRECT_URL = 'home'
 
 LOGIN_REDIRECT_URL = 'home'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CRONJOBS = [
+    ('*/1 * * * *', 'rbengine.cron.my_scheduled_job')
+]
