@@ -61,6 +61,10 @@ python manage.py createsuperuser
 python manange.py runserver 
 ```
 
+*Once the server runs sucessfully you would see this landing page, just add your superuser username and password*
+
+<a href="https://ibb.co/XF6qrjQ"><img src="https://i.ibb.co/ygKrcd9/Screenshot-from-2019-01-15-14-52-37.png" alt="Screenshot-from-2019-01-15-14-52-37" border="0"></a>
+
 ## Cronjob Setup:
 
 
