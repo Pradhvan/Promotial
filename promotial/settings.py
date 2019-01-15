@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-
+from .email_info import EMAIL_USE_TLS, EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -133,12 +133,20 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-LOGOUT_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
 
 LOGIN_REDIRECT_URL = 'home'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CRONJOBS = [
-    ('*/1 * * * *', 'rbengine.cron.my_scheduled_job')
+    ('*/1 * * * *', 'rbengine.cron.my_scheduled_job',
+     '>> /home/pradhvan/Desktop/scheduled_job.log'),
 ]
+
+
+# email config
+EMAIL_USE_TLS = EMAIL_USE_TLS
+EMAIL_HOST = EMAIL_HOST
+EMAIL_HOST_USER = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
+EMAIL_PORT = EMAIL_PORT
