@@ -139,7 +139,7 @@ LOGIN_REDIRECT_URL = 'home'
 
 
 CRONJOBS = [
-    ('*/1 * * * *', 'rbengine.cron.my_scheduled_job',
+    ('*/15 * * * *', 'rbengine.cron.my_scheduled_job',
      '>> /home/pradhvan/Desktop/scheduled_job.log'),
 ]
 
