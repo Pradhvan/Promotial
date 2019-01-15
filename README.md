@@ -1,8 +1,44 @@
 # Promotial
 A web app for managing marketing campaigns. 
 
+### Frontend
 
-## Devlopment:
+- [x] Login screen with email and password
+
+- [x] On successful login, user should be redirected to a page having an "Add Rule" button which allows user to create a new rule through a modal (like a contact form). The Create Rule modal must have following things:-
+
+    - [x] Rule name
+
+    - [x] Campaigns - to which campaign, should the rule be attached (multiselect field)
+
+    - [x] Schedule - at what time should this rule be triggered
+
+    - [x] Conditions - text box in which rules can be specfied
+
+    - [x] Action - actions that needs to be taken
+
+    - [x] Status - Activated/Deactivated
+
+- [x] The same page should have a table of all the rules that has been created by the user. Each rule line in the table should specify Rule name, Campaigns, Rule Schedule, Rule Status (Activated/Deactivated) and an edit button. 
+
+- [x] The edit button opens the same Create Rule modal but with data filled according to the specific rule.
+
+### Backend 
+
+- [x] Rule executor service
+
+   - [x]  The service should run every 15 minutes
+
+    - [ ] It should check for rules that must be executed according to schedule
+
+    - [ ] If the rule should be executed, make a lookup for data and execute the condition in the rule and trigger congiured action.
+
+- [x] Action executor service
+
+    - [x] Implement Notify action only
+ 
+ 
+## Devlopment Guide:
 
 ### Project Setup:
 
