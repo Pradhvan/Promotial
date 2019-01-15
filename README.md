@@ -65,6 +65,13 @@ python manange.py runserver
 
 <a href="https://ibb.co/XF6qrjQ"><img src="https://i.ibb.co/ygKrcd9/Screenshot-from-2019-01-15-14-52-37.png" alt="Screenshot-from-2019-01-15-14-52-37" border="0"></a>
 
+## Database Tables 
+``` Python
+Campaign(name,created_by, created_date)
+Rule(rule_name,campaign,schedule,condition,status,action)
+VariableMetric(rule,impression,click,install,spend,ecpm,ecpi,metric_id)
+```
+
 ## Cronjob Setup:
 
 
