@@ -4,7 +4,7 @@ from .forms import RuleForm
 from .models import Rule
 from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def home(request):
     rules = Rule.objects.all()
     return render(request, 'home.html', {'rules': rules})
